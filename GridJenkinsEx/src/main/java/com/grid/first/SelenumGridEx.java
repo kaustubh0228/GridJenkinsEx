@@ -1,7 +1,5 @@
 package com.grid.first;
 
-import static org.testng.Assert.assertEquals;
-
 import java.net.URL;
 
 import org.openqa.selenium.By;
