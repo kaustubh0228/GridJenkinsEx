@@ -13,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class selenumgriex {
+public class SelenumGridEx {
 
 	private static Wait<WebDriver> wait;
 	private static DesiredCapabilities capabillities;
@@ -23,7 +23,7 @@ public class selenumgriex {
 	public static void setUp() throws Exception {
 		
 		capabillities = DesiredCapabilities.chrome();
-		WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabillities);
+		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabillities);
 		capabillities.setBrowserName("chrome");
 		wait = new WebDriverWait(driver, 6000);
 	}
