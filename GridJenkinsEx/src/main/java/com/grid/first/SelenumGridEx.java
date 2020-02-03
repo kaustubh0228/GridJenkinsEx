@@ -29,7 +29,7 @@ public class SelenumGridEx {
 	}
 
 	@Test
-	public void loginPageTest() throws Exception {
+	public void loginPageTest() {
 
 		driver.get("file:///C:/Users/Kaustubh%20Aras/Desktop/JavaByKiran/Offline_Website/index.html");
 		wait.until(new ExpectedCondition<Boolean>() {
@@ -37,13 +37,10 @@ public class SelenumGridEx {
 				return webDriver.findElement(By.tagName("title")) != null;
 			}
 		});
-		System.out.println(Thread.currentThread().getId());
-
-		System.out.println("You're on login Page!");
 	}
 
 	@Test
-	public void dashboardPageTest() throws Exception {
+	public void dashboardPageTest() {
 
 		driver.get("file:///C:/Users/Kaustubh%20Aras/Desktop/JavaByKiran/Offline_Website/pages/examples/dashboard.html");
 		wait.until(new ExpectedCondition<Boolean>() {
@@ -51,12 +48,6 @@ public class SelenumGridEx {
 				return webDriver.findElement(By.tagName("title")) != null;
 			}
 		});
-		System.out.println(Thread.currentThread().getId());
-		System.out.println("You're on dashboard!");
 	}
 
-	@AfterClass
-	public static void tearDown() throws Exception {
-		driver.quit();
-	}
 }
