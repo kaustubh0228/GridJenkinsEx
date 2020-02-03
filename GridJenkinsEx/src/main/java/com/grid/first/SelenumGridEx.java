@@ -9,20 +9,18 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SelenumGridEx {
 
 	private static Wait<WebDriver> wait;
-	private static DesiredCapabilities capabillities;
 	private static WebDriver driver;
 
 	@BeforeClass
 	public static void setUp() throws Exception {
 		
-		capabillities = DesiredCapabilities.chrome();
+		DesiredCapabilities capabillities = DesiredCapabilities.chrome();
 		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabillities);
 		capabillities.setBrowserName("chrome");
 		wait = new WebDriverWait(driver, 6000);
