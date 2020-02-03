@@ -1,30 +1,12 @@
-node{
-   stage('SCM Checkout'){
-     git 'https://github.com/kaustubh0228/GridJenkinsEx.git'
-   }
-   stage('Compile-Package'){
-      // Get maven home path
-      sh "mvn package"
-   }
-   
-   stage('SonarQube Analysis') {
-        withSonarQubeEnv('Sonar') { 
-          sh "mvn sonar:sonar"
-        }
-    }
-   
-   stage('Email Notification'){
-      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
-      Thanks
-      Kaustubh''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'kaustubh.aras@gmail.com'
-   }
-   stage('Slack Notification'){
-       slackSend baseUrl: 'https://hooks.slack.com/services/',
-       channel: '#jenkins-pipeline-demo',
-       color: 'good', 
-       message: 'Welcome to Jenkins, Slack!', 
-       teamDomain: 'javahomecloud',
-       tokenCredentialId: 'slack-demo'
-   }
-
+node ("windows") {
+  stage ('Build') {
+ 
+    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+ 
+    withMaven(...) {
+ 
+      bat "mvn clean install"
+ 
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+  }
 }
